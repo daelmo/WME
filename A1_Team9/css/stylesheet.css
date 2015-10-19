@@ -1,0 +1,30 @@
+/*  Tada das ist der erste spaß */
+
+*{
+	box-sizing: border-box !important;
+}
+
+body{
+	
+}
+
+header{
+	
+}
+
+header img{
+	
+}
+
+nav ul{
+	
+}
+
+nav ul li{
+	float: left;
+}
+
+nav ul li:hover{
+	color:red;
+}
+
