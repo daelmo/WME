@@ -3,6 +3,7 @@
 *{
 	box-sizing: border-box !important;
 	font:Roboto, 14px;
+	font-size: 14px;
 }
 
 img{
@@ -11,6 +12,8 @@ img{
 
 body{
 	margin: 0px;
+	width:80%;
+	margin: 0px auto;
 }
 
 body > div{
@@ -21,28 +24,36 @@ body > div{
 header{
 	display: block;
 	position: fixed;
-	background-color: grey;
+	background-color: #aaa;
 	width: 100%;
 	left: 0px;
 	top: 0px;
 	
 }
 
-header >div{
+header nav div{
 	float: left;
 	width: 150px;
 	height:80px;
 	overflow: hidden !important;
+	margin-top: -20px;
+	margin-right: 40px;
 }
 
-header>img{
+header nav img{
 	margin-top: 0px;
 	overflow: hidden;
+	margin-right: 20px;
 	
 }
 
-header >img:hover{
+header nav img:hover{
 	margin-top: -80px;
+}
+
+nav{
+	width:80%;
+	margin: 0px auto;
 }
 
 nav ul{
@@ -51,24 +62,61 @@ nav ul{
 
 nav ul li {
 	float: left;
-	padding: 15px 10px;
+	padding: 25px 10px 5px 10px;
 	list-style-type: none;
+	border-left: 1px solid gray;
+	margin-top: -10px;
+	height: 70px;
 }
 
 nav ul li:hover{
 	
 }
 
+nav ul li a{
+	text-decoration: none;
+	color: #666;
+		
+}
+
 section{
-	margin-top:100px;
+	margin-top:130px;
 	display: block;
 	clear:left;
 	height: 700px;
 }
 
 p{
-	
 	padding: 15px;
-	border: 1px solid green;
-	
+	border: 1px solid #ccc;
+	border-top: 1px solid green;
+	box-shadow: 3px 3px 6px #ddd;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	line-height: 20px;
+}
+
+p a {
+	color: green;
+}
+
+
+footer{
+	border-top: 1px solid green;
+	padding: 15px 0px;
+}
+
+footer div:nth-child(1){
+	float: left;
+}
+
+
+footer div:nth-child(2){
+	float: right;
+}
+
+h1{
+	font-size: 40px;
+	margin: 0px;
+	margin-bottom: 20px;
 }
