@@ -4,27 +4,68 @@
 	box-sizing: border-box !important;
 }
 
+img{
+	display: block;
+}
+
 body{
+	margin: 0px;
+}
+
+body > div{
+	width: 80%;
+	margin: 0px auto;
+}
+
+header{
+	display: block;
+	position: fixed;
+	background-color: grey;
+	width: 100%;
 	
 }
 
 header{
+	float: left;
+	width: 150px;
+	height:80px;
+	overflow: hidden !important;
+}
+
+header>img{
+	margin-top: 0px;
+	overflow: hidden;
 	
 }
 
-header img{
-	
+header >img:hover{
+	margin-top: -80px;
 }
 
 nav ul{
 	
 }
 
-nav ul li{
+nav ul li {
 	float: left;
+	padding: 15px 10px;
+	list-style-type: none;
 }
 
 nav ul li:hover{
-	color:red;
+	
 }
 
+section{
+	margin-top: 20px;
+	display: block;
+	clear:left;
+	height: 700px;
+}
+
+p{
+	
+	padding: 15px;
+	border: 1px solid green;
+	
+}
