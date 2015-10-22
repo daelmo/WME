@@ -4,7 +4,8 @@
 + 
 +#netbeans specific
 +core
-+*/nbproject/*
++A1_Team9/nbproject/*
++A1_Team9/screenshots/*
 +!nbproject/project.properties
 +!nbproject/project.xml
 + 
@@ -19,3 +20,4 @@
 +*.swp
 +*.DS_Store
 +*.lock
+/A1_Team9/nbproject/private/
