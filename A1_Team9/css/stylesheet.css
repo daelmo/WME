@@ -24,11 +24,13 @@ body > div{
 header{
 	display: block;
 	position: fixed;
-	background-color: #aaa;
 	width: 100%;
 	left: 0px;
 	top: 0px;
-	
+	background: #eeeeee; /* Old browsers */
+	background: linear-gradient(to top, #f9f9f9 0%,#d0d0d0 100%); /* W3C */
+	border-bottom: 1px solid #ccc;
+
 }
 
 header nav div{
@@ -62,11 +64,15 @@ nav ul{
 
 nav ul li {
 	float: left;
-	padding: 25px 10px 5px 10px;
+	padding: 30px 10px 5px 10px;
 	list-style-type: none;
-	border-left: 1px solid gray;
+	border-right: 1px solid #ccc;
 	margin-top: -10px;
 	height: 70px;
+}
+
+nav ul li:first-child{
+	border-left: 1px solid #ccc;
 }
 
 nav ul li:hover{
