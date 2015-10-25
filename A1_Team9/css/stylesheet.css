@@ -2,7 +2,7 @@
 
 *{
 	box-sizing: border-box !important;
-	font:Roboto, 14px;
+	font-family: 'Roboto', sans-serif;
 	font-size: 14px;
 }
 
