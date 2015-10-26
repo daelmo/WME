@@ -121,6 +121,18 @@ section{
 	text-decoration: none;
 }
 
+.showhide {
+	color: #7A7A7A;
+}
+
+.showhide a{
+	color: #B2B2B2;
+}
+
+.showhide a:hover{
+	text-decoration: none;
+}
+
 
 footer{
 	border-top: 1px solid green;
