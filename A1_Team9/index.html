@@ -11,7 +11,7 @@
 		<link rel="stylesheet" href="css/stylesheet.css">
 		<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="data/font_awesome/css/font-awesome.min.css">
-		<script type="text/javascript" src="js/CSV2Array.js" ></script>
+
 	
 		
 	</head>
@@ -31,10 +31,7 @@
 			</header>
 
 			<section>
-					<script>
-						
-			 
-		</script>
+		
 				<article>
 					<h1>World Data Overview ...</h1>
 					<div class="block">
@@ -57,7 +54,20 @@
 						Show/Hide: birth rate | cellphones | children/woman | electric usage | internet usage
 					</div>
 					
-					<table>
+	<div>
+    <form class="form-horizontal well">
+        <label for="csvFileInput"> <strong>CSV File:</strong>
+          </label>
+          <input type="file" id="csvFileInput" onchange="handleFiles(this.files)" >
+    </form>
+    <div id="output">
+    </div>
+  </div>
+  
+				
+					
+					
+					<!--<table>
 						<thead>
 							<tr>
 								<th>ID</th>
@@ -74,7 +84,7 @@
 								<td>test</td>
 							</tr>
 						</tbody>		
-					</table>
+					</table>-->
 					
 					<div>
 						Show/Hide: birth rate | cellphones | children/woman | electric usage | internet usage
@@ -92,5 +102,7 @@
 					Brauer(s9916252) and Rehak(s2335937) &bull; Team 9
 				</div>
 			</footer>
+		<script type="text/javascript" src="js/ReadCSV.js" ></script>
+				
 	</body>
 </html>
