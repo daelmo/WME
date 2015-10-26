@@ -76,13 +76,12 @@ nav ul li:first-child{
 }
 
 nav ul li:hover{
-	
+	background-color: #aaa;
 }
 
 nav ul li a{
 	text-decoration: none;
 	color: #666;
-		
 }
 
 section{
@@ -92,18 +91,35 @@ section{
 	height: 700px;
 }
 
-p{
+.block{
+	column-count: 3; 
+	-moz-column-count: 3;
+	-webkit-column-count: 3;
+	-webkit-column-gap: 15px; /* Chrome, Safari, Opera */
+    -moz-column-gap: 15px; /* Firefox */
+    column-gap: 15px;
+	column-width: 25%;
+	margin: 0 0 2.7ex 0;
+	font-size: 1.8ex; 
+	line-height: 2.7ex; 
+	hyphens:auto;
+	orphans:3; widows: 3;
 	padding: 15px;
 	border: 1px solid #ccc;
 	border-top: 1px solid green;
 	box-shadow: 3px 3px 6px #ddd;
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
-	line-height: 20px;
+	line-height: 19px;
+	background-color: #fafaff;
 }
 
-p a {
+.block a {
 	color: green;
+}
+
+.block a:hover{
+	text-decoration: none;
 }
 
 
@@ -125,4 +141,13 @@ h1{
 	font-size: 40px;
 	margin: 0px;
 	margin-bottom: 20px;
+}
+
+table{
+	width: 100%;
+}
+
+table thead{
+	border-bottom: 3px solid #aaa;
+	display: block;
 }
