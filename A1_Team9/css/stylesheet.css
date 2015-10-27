@@ -118,11 +118,12 @@ article{
 }
 
 .block a {
-	color: green;
+	color: #33CC00;
 }
 
 .block a:hover{
 	text-decoration: none;
+        color: #006600;
 }
 
 .showhide {
@@ -162,7 +163,6 @@ h1{
 table{
 	width: 100%;
 	margin-top: 10px;
-	display: block;
 	border-collapse: collapse;
 }
 
