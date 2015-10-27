@@ -55,9 +55,9 @@ function drawOutput(lines) {
 
 	}
 
-
+	var body = table.createTBody();
 	for (var i = 1; i < lines.length; i++) {
-		var row = table.insertRow(-1);
+		var row = body.insertRow(-1);
 		for (var j = 0; j < 6; j++) {
 			if (j === 6) {
 				j = 9;

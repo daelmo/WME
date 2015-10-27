@@ -159,6 +159,8 @@ h1{
 
 table{
 	width: 100%;
+	margin-top: 10px;
+	display: block;
 }
 
 table tr{
@@ -174,7 +176,3 @@ table td{
 	
 }
 
-table thead{
-	border-bottom: 3px solid #aaa;
-	display: block;
-}
