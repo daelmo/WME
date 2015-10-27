@@ -42,26 +42,22 @@ function drawOutput(lines) {
 	//Clear previous data
 	document.getElementById("output").innerHTML = "";
 	var table = document.createElement("table");
+        var headerNames=["ID","country","birth rate/1000","cellphones/100","children/woman","electric usage", "internet usage"]
 
 	var header = table.createTHead();
 	var headerRow = header.insertRow(-1);
-	for (var j = 0; j < 6; j++) {
-		if (j === 6) {
-			j = 9;
-		}
+	for (var j = 0; j < 7; j++) {
 		var th = document.createElement('th');
 		headerRow.appendChild(th);
-		th.appendChild(document.createTextNode(lines[0][j]));
+                th.innerHTML= " "+headerNames[j] + " ";
 
 	}
 
 	var body = table.createTBody();
 	for (var i = 1; i < lines.length; i++) {
 		var row = body.insertRow(-1);
-		for (var j = 0; j < 6; j++) {
-			if (j === 6) {
-				j = 9;
-			}
+		for (var j = 0; j < 7; j++) {
+		
 			var firstNameCell = row.insertCell(-1);
 			firstNameCell.appendChild(document.createTextNode(lines[i][j]));
 		}
