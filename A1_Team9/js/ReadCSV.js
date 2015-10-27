@@ -41,9 +41,9 @@ function errorHandler(evt) {
 function drawOutput(lines) {
 	//Clear previous data
 	document.getElementById("output").innerHTML = "";
-	var table = document.createElement("table");
+	var table = document.getElementById("table");
         var headerNames=["ID","country","birth rate/1000","cellphones/100","children/woman","electric usage", "internet usage"]
-
+        
 	var header = table.createTHead();
 	var headerRow = header.insertRow(-1);
 	for (var j = 0; j < 7; j++) {
