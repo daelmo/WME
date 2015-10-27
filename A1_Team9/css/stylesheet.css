@@ -3,6 +3,8 @@
 *{
 	box-sizing: border-box !important;
 	font-family: 'Roboto', sans-serif;
+	font-style: normal;
+	line-height: 1.45em;
 	font-size: 14px;
 }
 
@@ -62,15 +64,15 @@ nav{
 }
 
 nav ul{
-	
+
 }
 
 nav ul li {
 	float: left;
-	padding: 30px 10px 5px 10px;
+	padding: 32px 10px 10px 10px;
 	list-style-type: none;
-	border-right: 1px solid #ccc;
-	margin-top: -10px;
+	border-right: 1px solid #CCC;
+	margin-top: -13px;
 	height: 70px;
 }
 
@@ -87,7 +89,7 @@ nav ul li a{
 	color: #666;
 }
 
-section{
+article{
 	margin-top:130px;
 	display: block;
 	clear:left;
@@ -112,7 +114,6 @@ section{
 	box-shadow: 3px 3px 6px #ddd;
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
-	line-height: 19px;
 	background-color: #fafaff;
 }
 
@@ -140,6 +141,7 @@ section{
 footer{
 	border-top: 1px solid green;
 	padding: 15px 0px;
+	margin-top: 50px;
 }
 
 footer div:nth-child(1){
@@ -161,6 +163,11 @@ table{
 	width: 100%;
 	margin-top: 10px;
 	display: block;
+	border-collapse: collapse;
+}
+
+thead{
+	border-bottom: 3px solid #999;
 }
 
 table tr{
@@ -169,10 +176,11 @@ table tr{
 
 table th{
 	font-weight: bold;
+	text-align: left;
 }
 
 table td{
-	padding: 10px 5px;
-	
+	padding: 12px 7px;
+
 }
 

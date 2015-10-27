@@ -11,14 +11,20 @@
 		<link rel="stylesheet" href="css/stylesheet.css">
 		<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="data/font_awesome/css/font-awesome.min.css">
-
-
-
+		<script>
+			function setInvisibleColumn(col) {
+				var tr = document.getElementsByTagName("TR");
+				tr[col].style.backgroundColor = "red";
+				
+				
+				
+			}
+		</script>
 	</head>
 	<body>
 		<header>
 			<nav>
-				<div><img src="data/world_data_logo_v1.png" alt=""></div>
+				<div><a href="#"><img src="data/world_data_logo_v1.png" alt=""></a></div>
 				<ul>
 					<li><a href="#"><i class="fa fa-list-ul"></i> A1 - Table</a></li>
 					<li><a href="#"><i class="fa fa-list-ul"></i> A2 - Parse</a></li>
@@ -29,10 +35,8 @@
 				</ul>
 			</nav>
 		</header>
-
-		<section>
-
-			<article>
+		<article>
+			<section>
 				<h1>World Data Overview ...</h1>
 				<div class="block">
 
@@ -50,10 +54,11 @@
 					digital color meter. Glossy tech specs bluetooth manuals. OpenGL products FaceTime free shipping
 					recycling mission control applications. From <a href="http://www.hase.de">jony_ipsum</a>
 				</div>
-
+			</section>
+			<section>
 				<div class="showhide">
 					Show/Hide: 
-					<a href="#">birth rate</a> | 
+					<a href="javascript:setInvisibleColumn(1);" onclick="">birth rate</a> | 
 					<a href="#">cellphones</a> | 
 					<a href="#">children/woman</a> | 
 					<a href="#">electric usage</a> | 
@@ -78,9 +83,9 @@
 					<a href="#">electric usage</a> | 
 					<a href="#">internet usage</a>
 				</div>
+			</section>
+		</article>	
 
-			</article>	
-		</section>
 		<footer>
 			<div>
 				Copyright &copy; 2015 world_data <br>
