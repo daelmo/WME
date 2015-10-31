@@ -22,6 +22,21 @@
                     document.getElementById("c"+col).style.visibility="visible";
                 }
             }
+            
+            var menuVisible = false;
+            function setMenuVisible(){
+          
+                if(menuVisible === false){
+                    document.styleSheets[0].insertRule( "nav ul li{ display: block !important;}",0);
+                    document.styleSheets[0].insertRule( "article {margin-top: 400px !important;}",1);
+                    menuVisible = true;
+                }else{
+                     document.styleSheets[0].deleteRule(1);
+                    document.styleSheets[0].deleteRule(0);
+                   
+                     menuVisible = false;
+                }
+            }
         </script>
     </head>
     <body>
@@ -36,6 +51,7 @@
                     <li><a href="#"><i class="fa fa-list-ul"></i> A3 - REST</a></li>
                     <li><a href="#"><i class="fa fa-list-ul"></i> A4 - Vis</a></li>
                 </ul>
+                <div onclick="setMenuVisible()"><i class="fa fa-list-ul" ></i></div>
             </nav>
         </header>
         <article>
