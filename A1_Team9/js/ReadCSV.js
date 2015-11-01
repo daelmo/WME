@@ -77,8 +77,9 @@ function drawOutput(lines) {
 		headerRow.appendChild(th);
 		if (j == 1) {
 			th.innerHTML = " " + headerNames[j] 
-				+ " <i class=\"fa fa-angle-up\" onclick=\"sort_table(1)\"></i>"
-				+ "<i class=\"fa fa-angle-down\" onclick=\"sort_table(-1)\"></i>" + " "; 
+				+ " <i class = \"fa fa-angle-up\" onclick=\"sort_table(1)\"></i>"
+				+ " <i class = \"fa fa-angle-down\" onclick=\"sort_table(-1)\"></i>" 
+				+ " "; 
 		}
 		else{
 			th.innerHTML= " "+headerNames[j] + " ";

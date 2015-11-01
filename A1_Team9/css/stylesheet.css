@@ -125,7 +125,7 @@ article{
 }
 
 .block a {
-    color: #33CC00;
+    color: #088A08;
 }
 
 .block a:hover{
@@ -184,6 +184,11 @@ table tr{
 table th{
     font-weight: bold;
     text-align: left;
+}
+
+table th i{
+	color: #088A08;
+	cursor: pointer;
 }
 
 table td{
