@@ -38,18 +38,51 @@ function errorHandler(evt) {
 	}
 }
 
+function sort_table(asc){
+	var tbody = document.getElementsByTagName("tbody");
+	var rows = tbody[0].rows, arr = new Array(), i, j, cells;
+	
+	//read values and store them in array
+	for(i = 0; i < rows.length; i++){
+		cells = rows[i].cells;
+		arr[i] = new Array();
+        for(j = 0; j < cells.length; j++){
+			arr[i][j] = cells[j].innerHTML;
+        }
+    }
+	
+	//compare values of column 1 (country) and differentiate between asc/desc 
+	arr.sort(function(a, b){
+        return (a[1] == b[1]) ? 0 : ((a[1] > b[1]) ? asc : -1*asc);
+    });
+	
+
+	for(i = 0; i < rows.length; i++){
+		arr[i] = "<td>"+arr[i].join("</td><td>")+"</td>";
+    }
+    tbody[0].innerHTML = "<tr>"+arr.join("</tr><tr>")+"</tr>";
+	
+}
+
 function drawOutput(lines) {
 	//Clear previous data
 	document.getElementById("output").innerHTML = "";
 	var table = document.getElementById("table");
-        var headerNames=["ID","country","birth rate/1000","cellphones/100","children/woman","electric usage", "internet usage"]
+        var headerNames=["ID","Country","birth rate/1000","cellphones/100","children/woman","electric usage", "internet usage"]
         
 	var header = table.createTHead();
 	var headerRow = header.insertRow(-1);
 	for (var j = 0; j < 7; j++) {
 		var th = document.createElement('th');
 		headerRow.appendChild(th);
-                th.innerHTML= " "+headerNames[j] + " ";
+		if (j == 1) {
+			th.innerHTML = " " + headerNames[j] 
+				+ " <i class=\"fa fa-angle-up\" onclick=\"sort_table(1)\"></i>"
+				+ "<i class=\"fa fa-angle-down\" onclick=\"sort_table(-1)\"></i>" + " "; 
+		}
+		else{
+			th.innerHTML= " "+headerNames[j] + " ";
+		}
 
 	}
 
