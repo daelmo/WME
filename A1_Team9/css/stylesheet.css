@@ -81,6 +81,10 @@ nav ul li {
     list-style-type: none;
     border-right: 1px solid #CCC;
     height: 81px;
+	-webkit-transition: background .5s;
+    -moz-transition: background .5s;
+    -o-transition: background .5s;
+    transition: background .5s;
 }
 
 nav ul li:first-child{
