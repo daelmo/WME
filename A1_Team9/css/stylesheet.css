@@ -204,6 +204,10 @@ table td{
 @media screen
 and (min-width: 768px) 
 and (max-width: 1199px){
+	footer div{
+		float:none !important;
+	}
+	
     nav { width:780px;
           margin: 0px;
     }
@@ -223,6 +227,10 @@ and (max-width: 1199px){
 
 @media screen 
 and (max-width: 767px){
+	footer div{
+		float:none !important;
+	}
+	
     .block{
         column-count: 1; 
         -moz-column-count: 1;
