@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+
+        <title>WME Ü1 Gruppe 9</title>
+        <meta charset="UTF-8">
+        <meta name="author" content="Gruppe 9">
+        <meta name="description" content="">
+        <meta name="keywords" content="Web- und Multimedia, Übung">
+        <link rel="stylesheet" href="css/stylesheet.css">
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="data/font_awesome/css/font-awesome.min.css">
+        <script>
+            var isShown = [true, true, true, true, true, true, true, true, true];
+            function setInvisibleColumn(col) {
+                if (isShown[col] === true) {
+                    isShown[col] = false;
+                    document.getElementById("c"+col).style.visibility="collapse";
+                } else {
+                    isShown[col] = true;
+                    document.getElementById("c"+col).style.visibility="visible";
+                }
+            }
+            
+            var menuVisible = false;
+            function setMenuVisible(){
+          
+                if(menuVisible === false){
+                    document.styleSheets[0].insertRule( "nav ul li{ display: block !important;}",0);
+                    document.styleSheets[0].insertRule( "article {margin-top: 400px !important;}",1);
+                    menuVisible = true;
+                }else{
+                     document.styleSheets[0].deleteRule(1);
+                    document.styleSheets[0].deleteRule(0);
+                   
+                     menuVisible = false;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div><a href="#"><img src="data/world_data_logo_v1.png" alt=""></a></div>
+                <ul>
+                    <li><a href="#"><i class="fa fa-list-ul"></i> A1 - Table</a></li>
+                    <li><a href="#"><i class="fa fa-list-ul"></i> A2 - Parse</a></li>
+                    <li><a href="#"><i class="fa fa-list-ul"></i> A2 - Save</a></li>
+                    <li><a href="#"><i class="fa fa-list-ul"></i> A2 - Print</a></li>
+                    <li><a href="#"><i class="fa fa-list-ul"></i> A3 - REST</a></li>
+                    <li><a href="#"><i class="fa fa-list-ul"></i> A4 - Vis</a></li>
+                </ul>
+                <div onclick="setMenuVisible()"><i class="fa fa-list-ul" ></i></div>
+            </nav>
+        </header>
+        <article>
+            <section>
+                <h1>World Data Overview ...</h1>
+                <div class="block">
+
+                    Mavericks reality distortion gradients attenuation. Thought through and through notifications 
+                    transperancy game center multitasking aluminum advanced desktop operating system genius bar.
+                    This changes everything designed by Apple in California passbook. Control center photos
+                    all-new design SDK technology clock. Simplicity is actually quite complicated. Functional
+                    layers 9:41 am partly cloudy minimalism. Dock airdrop slide to answer music. Video multitouch
+                    iTunes compass. Harmonious finder grid system retina animation compressor experience keynote. 
+                    Redesign services API notes system preferences. Features siri flat buttons airplane mode 
+                    calculator. Missed call cover flow compare models. Wi-Fi apple care volume reminder controls. 
+                    My stations folders mac power ultimate upgrade. Shop online quicktime trackpad server aperture 
+                    rumors education safari one to one. Remote desktop motion business. Backlit keyboards chess phone
+                    airport extreme support iPad. Accessories magsafe terminal final cut pro. Featured TV shows downloads
+                    digital color meter. Glossy tech specs bluetooth manuals. OpenGL products FaceTime free shipping
+                    recycling mission control applications. From <a href="http://www.hase.de">jony_ipsum</a>
+                </div>
+            </section>
+            <section>
+                <div class="showhide">
+                    Show/Hide: 
+                    <a href="javascript:setInvisibleColumn(3);" onclick="">birth rate</a> | 
+                    <a href="javascript:setInvisibleColumn(4);">cellphones</a> | 
+                    <a href="javascript:setInvisibleColumn(5);">children/woman</a> | 
+                    <a href="javascript:setInvisibleColumn(6);">electric usage</a> | 
+                    <a href="javascript:setInvisibleColumn(7);">internet usage</a>
+                </div>
+
+                <div>
+                    <form class="form-horizontal well">
+                        <label for="csvFileInput"> <strong>CSV File:</strong>
+                        </label>
+                        <input type="file" id="csvFileInput" onchange="handleFiles(this.files)" >
+                    </form>
+                    <div id="output">
+                    </div>
+                </div>
+
+                <table id="table">
+                    <colgroup> <col id="c1"><col id="c2"><col id="c3"><col id="c4"><col id="c5"><col id="c6"><col id="c7"></colgroup>
+
+
+                </table>    
+
+                <div class="showhide">
+                    Show/Hide: 
+                    <a href="javascript:setInvisibleColumn(3);" onclick="">birth rate</a> | 
+                    <a href="javascript:setInvisibleColumn(4);">cellphones</a> | 
+                    <a href="javascript:setInvisibleColumn(5);">children/woman</a> | 
+                    <a href="javascript:setInvisibleColumn(6);">electric usage</a> | 
+                    <a href="javascript:setInvisibleColumn(7);">internet usage</a>
+                </div>
+
+            </section>
+        </article>	
+
+        <footer>
+            <div>
+                Copyright &copy; 2015 world_data <br>
+                First course exercise <span class="bold">HTML, CSS and JS</span> of the lecture Web and Multimedia Engineering.
+            </div>
+            <div>
+                This solution has been created by:<br>
+                Brauer(s9916252) and Rehak(s2335937) &bull; Team 9
+            </div>
+        </footer>
+        <script type="text/javascript" src="js/ReadCSV.js" ></script>
+
+    </body>
+</html>

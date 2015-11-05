@@ -1,8 +1,3 @@
-/*
-- Code from: https://github.com/MounirMesselmeni/html-fileapi
-- Writer: MounirMesselmeni
-- contains additions for thead and tbody by J.Rehak
-*/
 function handleFiles(files) {
 	// Check for the various File API support.
 	if (window.FileReader) {
