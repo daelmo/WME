@@ -1,15 +1,22 @@
 <?php
 
-class world_data_parser{
-	function parse(){
-		
+class WorldDataParser{
+	
+	function parseCSV($path){
+		$array = [1,2];
+		//fgetcsv
+		//array fgetcsv(resource$handle,integer $length, string $delimiter)
+		return $array;
 	}
 	
-	function save(){
+	function saveXML($array){
+		$bool = true;
 		
+		
+		return $bool;
 	}
 	
-	function output(){
+	function printXML(){
 		
 	}
 	
