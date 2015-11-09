@@ -9,8 +9,9 @@
 	require_once './php/world_data_parser.php';
 	$parser = new WorldDataParser();
 	$output = $parser->parseCSV("./data/world_data_v1.csv");
-	$output = "<pre>" . var_dump($output) . "</pre>";
-	echo $output;
+	echo "<pre>";
+	var_dump($output); 
+	echo "</pre>";
 	?>
 	</body>	
 <html>
