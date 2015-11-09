@@ -27,7 +27,17 @@ class WorldDataParser {
 		return $bool;
 	}
 
-	function printXML() {
+	function printXML($xml, $xslt) {
+		$xmldoc = new DOMDocument;
+		$xmldoc -> load($xml);
+		
+		$xsltdoc = new DOMDocument;
+		$xsltdoc -> load($xslt);
+		
+		$processor = new XSLTProcessor();
+		$processor -> importStyleSheet($xsltdoc);
+		
+		echo $processor -> transformToXML($xmldoc);
 		
 	}
 
