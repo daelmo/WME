@@ -1,14 +1,14 @@
-+#ant specific
-+dist/
-+build/
-+ 
++
 +#netbeans specific
 +core
 +A1_Team9/nbproject/*
 +A1_Team9/screenshots/*
++A2_Team9/nbproject/*
++A3_Team9/nbproject/*
 +!nbproject/project.properties
 +!nbproject/project.xml
-+ 
++.gitignore 
++
 +#java specific
 +*.class
 + 
@@ -21,3 +21,5 @@
 +*.DS_Store
 +*.lock
 /A1_Team9/nbproject/private/
+/A2_Team9/nbproject/private/
+/A3_Team9/nbproject/private/
