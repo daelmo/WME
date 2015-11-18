@@ -1,11 +1,11 @@
-// DO NOT CHANGE!
+// // DO NOT CHANGE!
 //init app with express, util, body-parser, csv2json
 var express = require('express');
 var app = express();
 var sys = require('util');
 var path = require('path');
 var bodyParser = require('body-parser');
-var Converter = require("csvtojson").Converter;
+var Converter = require("csv2json").Converter;
 
 //register body-parser to handle json from res / req
 app.use( bodyParser.json() );
@@ -16,9 +16,20 @@ app.use( express.static( path.join(__dirname, "public") ) );
 // END DO NOT CHANGE!
 
 
+
 /**************************************************************************
 ****************************** csv2json *********************************
 **************************************************************************/
+
+var csv2json = require('csv2json');
+var fs = require('fs');
+ 
+fs.createReadStream('world_data.csv')
+  .pipe(csv2json({
+    // Defaults to comma. 
+    separator: ','
+  }))
+  .pipe(fs.createWriteStream('data.json'));
 
 /**************************************************************************
 ********************** handle HTTP METHODS ***********************

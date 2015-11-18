@@ -1,13 +1,18 @@
 {
-  "name": "TEAM_XX",
+  "name": "TEAM_9",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "TEAM_XX",
+  "author": "TEAM_9",
   "license": "ISC",
   "dependencies": {
+	  "express": ">= 1.2.0",
+	  "body-parser": ">= 1.14.0",
+	  "csv2json": ">= 1.1.0"
+	  
+	  
   }
 }
