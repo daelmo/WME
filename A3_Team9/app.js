@@ -7,6 +7,7 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var Converter = require("csvtojson").Converter;
 var fs=require("fs"); 
+var util = require("util");
 //register body-parser to handle json from res / req
 app.use( bodyParser.json() );
 
@@ -21,14 +22,13 @@ app.use( express.static( path.join(__dirname, "public") ) );
 **************************************************************************/
 // see http://www.scriptscoop.net/t/b682f7874bdf/javascript-how-to-convert-csv-to-json-in-node-js.html
 // by Keyang
-var json;
+var jsonObject;
 //Converter Class
 var Converter=require("csvtojson").Converter;
 var writeStream = require("fs").createWriteStream("data.json");
 var csvConverter=new Converter();
-
 csvConverter.on("end_parsed",function(jsonObj){
-    json = jsonObj; //result json object
+    jsonObject = jsonObj; //result json object
 });
 
 fs.createReadStream("./world_data.csv").pipe(csvConverter).pipe(writeStream);
@@ -37,13 +37,15 @@ fs.createReadStream("./world_data.csv").pipe(csvConverter).pipe(writeStream);
 ********************** handle HTTP METHODS ***********************
 **************************************************************************/
 
+
+
 // GET PROPERTIES
 app.get('/properties', function (req, res) {
-   fs.readFile( "./world_data.csv", 'utf8', function (err, data) {
-
-			console.log(data);
-	   
-   });
+	var string= "";
+	for(var value in jsonObject[0]) {
+		string += value+";";
+	}
+	res.end(string);
 });
 
 
