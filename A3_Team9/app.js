@@ -6,7 +6,7 @@ var sys = require('util');
 var path = require('path');
 var bodyParser = require('body-parser');
 var Converter = require("csvtojson").Converter;
-
+var fs=require("fs"); 
 //register body-parser to handle json from res / req
 app.use( bodyParser.json() );
 
@@ -25,7 +25,6 @@ var json;
 //Converter Class
 var Converter=require("csvtojson").Converter;
 var writeStream = require("fs").createWriteStream("data.json");
-var fs=require("fs"); 
 var csvConverter=new Converter();
 
 csvConverter.on("end_parsed",function(jsonObj){
@@ -37,6 +36,16 @@ fs.createReadStream("./world_data.csv").pipe(csvConverter).pipe(writeStream);
 /**************************************************************************
 ********************** handle HTTP METHODS ***********************
 **************************************************************************/
+
+// GET PROPERTIES
+app.get('/properties', function (req, res) {
+   fs.readFile( "http://localhost:8000/world_data.json", 'utf8', function (err, data) {
+	     if (err) throw err;
+			console.log(data);
+	   
+   });
+});
+
 
 
 // DO NOT CHANGE!
