@@ -39,8 +39,8 @@ fs.createReadStream("./world_data.csv").pipe(csvConverter).pipe(writeStream);
 
 // GET PROPERTIES
 app.get('/properties', function (req, res) {
-   fs.readFile( "http://localhost:8000/world_data.json", 'utf8', function (err, data) {
-	     if (err) throw err;
+   fs.readFile( "./world_data.csv", 'utf8', function (err, data) {
+
 			console.log(data);
 	   
    });
