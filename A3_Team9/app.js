@@ -39,13 +39,11 @@ fs.createReadStream("./world_data.csv").pipe(csvConverter).pipe(writeStream);
 
 
 
+
 // GET PROPERTIES
 app.get('/properties', function (req, res) {
-	var string= "";
-	for(var value in jsonObject[0]) {
-		string += value+";";
-	}
-	res.end(string);
+	res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify(jsonObject[0]));
 });
 
 
