@@ -4,12 +4,13 @@ $.ajax({
 	url: "http://localhost:8000/properties",
 	async: true,
 	success: function(data) {
-		window.alert(data);
+		var i=0;
 		for(var value in data){
 			$('#prop_selection')
 					.append($("<option></option>")
-							.attr("value", value)
+							.attr("value", i)
 							.text(value));
+				i++;	
 				}
 					
 		},
