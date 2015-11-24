@@ -42,17 +42,38 @@ fs.createReadStream("./world_data.csv").pipe(csvConverter).pipe(writeStream);
 
 // GET PROPERTIES
 app.get('/properties', function (req, res) {
-    res.send(Object.keys(jsonObject[0]));
+	for(var i = 0; i<jsonObject.length; i++){
+			if(typeof(jsonObject[i]) !== "undefined"){
+				res.send(Object.keys(jsonObject[i]));
+				break;
+			}
+		}
+		//res.send("Error: All values in list deleted.");
 });
 
 app.get('/properties/:num', function (req, res) {
-	res.setHeader('Content-Type', 'application/json');
 	if(req.params.num >= Object.keys(jsonObject[0]).length|| req.params.num < 0){
 		res.send("Error: No such property available.");
 	}else{
-		var array = Object.keys(jsonObject[0]);
-		res.send(array[req.params.num]);
+		for(var i = 0; i<jsonObject.length; i++){
+			if(typeof(jsonObject[i]) !== "undefined"){
+				var array = Object.keys(jsonObject[i]);
+				res.send(array[req.params.num]);
+				break;
+			}
+		}
+		//res.send("Error: All values in list deleted."); - res.send doenst terminate function! != return
 	}    
+});
+
+// DELETE
+app.get('/items', function (req, res) {
+	var length = Object.keys(jsonObject).length;
+	delete jsonObject[length-1];
+});
+
+app.delete('/items/:num', function (req, res) {
+	delete jsonObject[req.params.num];
 });
 
 
