@@ -67,7 +67,7 @@ app.get('/properties/:num', function (req, res) {
 });
 
 // DELETE
-app.get('/items', function (req, res) {
+app.delete('/items', function (req, res) {
 	var length = Object.keys(jsonObject).length;
 	delete jsonObject[length-1];
 });
