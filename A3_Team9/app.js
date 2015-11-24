@@ -47,8 +47,8 @@ app.get('/properties', function (req, res) {
 
 app.get('/properties/:num', function (req, res) {
 	res.setHeader('Content-Type', 'application/json');
-	if(req.params.num >= Object.keys(jsonObject).length || req.params.num < 0){
-		res.send("Error");
+	if(req.params.num >= Object.keys(jsonObject[0]).length|| req.params.num < 0){
+		res.send("Error: No such property available.");
 	}else{
 		var array = Object.keys(jsonObject[0]);
 		res.send(array[req.params.num]);
