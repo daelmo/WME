@@ -1,7 +1,9 @@
 
+
+//GET PROPERTIES
 $.ajax({
 	type: "GET",
-	url: "http://localhost:8000/properties",
+	url: "http://localhost:8000/properties/",
 	async: true,
 	success: function(data) {
 		var i=0;
@@ -9,10 +11,9 @@ $.ajax({
 			$('#prop_selection')
 					.append($("<option></option>")
 							.attr("value", i)
-							.text(value));
-				i++;	
+							.text(data[value]));
+				i++;
 				}
-					
 		},
 	error: function(jqXHR, text, err) {
 		//TODO Handle error if occured

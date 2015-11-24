@@ -42,10 +42,18 @@ fs.createReadStream("./world_data.csv").pipe(csvConverter).pipe(writeStream);
 
 // GET PROPERTIES
 app.get('/properties', function (req, res) {
-	res.setHeader('Content-Type', 'application/json');
-    res.send(JSON.stringify(jsonObject[0]));
+    res.send(Object.keys(jsonObject[0]));
 });
 
+app.get('/properties/:num', function (req, res) {
+	res.setHeader('Content-Type', 'application/json');
+	if(req.params.num >= Object.keys(jsonObject).length || req.params.num < 0){
+		res.send("Error");
+	}else{
+		var array = Object.keys(jsonObject[0]);
+		res.send(array[req.params.num]);
+	}    
+});
 
 
 // DO NOT CHANGE!
