@@ -37,6 +37,19 @@ fs.createReadStream("./world_data.csv").pipe(csvConverter).pipe(writeStream);
 ********************** handle HTTP METHODS ***********************
 **************************************************************************/
 
+//GET COUNTRIES
+app.get('/items', function (req, res) { //get all
+	//TODO
+});
+
+app.get('/items/:num', function (req, res) { //get single element
+	//TODO
+});
+
+app.get('/items/:beg/:end', function (req, res) { //get range ?
+	//TODO
+	// i don't know if the path above is right :/ -> stackoverflow?
+});
 
 
 
@@ -66,13 +79,20 @@ app.get('/properties/:num', function (req, res) {
 	}    
 });
 
-// DELETE
-app.delete('/items', function (req, res) {
+//POST ITEM
+// http://stackoverflow.com/questions/4295782/how-do-you-extract-post-data-in-node-js
+app.post('/items', function(req, res){
+		//TODO!
+	});
+
+
+// DELETE COUNTRY
+app.delete('/items', function (req, res) { //deletes last
 	var length = Object.keys(jsonObject).length;
 	delete jsonObject[length-1];
 });
 
-app.delete('/items/:num', function (req, res) {
+app.delete('/items/:num', function (req, res) { //deletes number
 	delete jsonObject[req.params.num];
 });
 
