@@ -39,16 +39,30 @@ fs.createReadStream("./world_data.csv").pipe(csvConverter).pipe(writeStream);
 
 //GET COUNTRIES
 app.get('/items', function (req, res) { //get all
-	//TODO
+	res.send(jsonObject);
 });
 
 app.get('/items/:num', function (req, res) { //get single element
-	//TODO
+	if (req.params.num >= jsonObject.length || req.params.num < 0){
+		res.send("No such id {" + req.params.num + "} in database.");
+	}
+	res.send(jsonObject[req.params.num]);
+	
 });
 
-app.get('/items/:beg/:end', function (req, res) { //get range ?
-	//TODO
-	// i don't know if the path above is right :/ -> stackoverflow?
+app.get('/items/:beg/:end', function (req, res) { //get range
+	var beg = req.params.beg;
+	var end = req.params.end;
+	
+	if(beg >= jsonObject.length || end >= jsonObject.length || beg < 0 || end < 0 || end < beg){
+		res.send("Range not possible.");
+	}
+	
+	var objects = [];
+	for (var i = beg; i <= end; i++){
+		objects.push(jsonObject[i]);
+	}
+	res.send(objects);
 });
 
 
