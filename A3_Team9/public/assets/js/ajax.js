@@ -10,9 +10,35 @@ function add_country(){
 	//get values of field
 	// send POST request via ajax
 	// errormessage or success
+	
 }
 
 //GET TABLECONTENT by loading of website (json or array)
+$.ajax({
+	type: "GET",
+	url: "http://localhost:8000/items/",
+	async: true,
+	success: function(data){
+	
+	
+		$.each(data, function(i, item) {  
+			var td;
+			var row = document.createElement('tr');
+			
+			for(key in item){
+				td = document.createElement('td');
+				$(td).html(item[key]);
+				row.appendChild(td);
+			}
+			
+			$('#table_body').append(row);
+		});
+	},
+	error: function(jqXHR, text, err) {
+		//TODO Handle error if occured
+	}
+
+});
 
 
 //GET PROPERTIES by loading of website

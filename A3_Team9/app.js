@@ -94,9 +94,13 @@ app.get('/properties/:num', function (req, res) {
 });
 
 //POST ITEM
-// http://stackoverflow.com/questions/4295782/how-do-you-extract-post-data-in-node-js
 app.post('/items', function(req, res){
-		//TODO!
+		
+		var item = req.body;
+		jsonObject.push(item);
+		
+		res.send("Added country {" + item.name + "} to list!)");
+		
 	});
 
 
