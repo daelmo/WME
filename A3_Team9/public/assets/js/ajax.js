@@ -20,31 +20,61 @@ function filter_countries() {
 			async: true,
 			success: function(data) {
 				// delete tbody
-				var tbody = document.createElement('tbody');
-				var old_tbody = document.getElementById("table_body");
-				
-				tbody.setAttribute("id", "table_body");
-				old_tbody.parentNode.replaceChild(tbody, old_tbody)
+				var new_tb = document.createElement('tbody');
+				var old_tb = document.getElementById("table_body");
+				new_tb.setAttribute("id", "table_body");
+				old_tb.parentNode.replaceChild(new_tb, old_tb)
 
 				// acces row
 				var row = document.createElement('tr');
 				var td;
 				for (var value in data) {
-
 					td = document.createElement('td');
 					$(td).html(data[value]);
 					row.appendChild(td);
 				}
 				$('#table_body').append(row);
-
 			},
 			error: function(jqXHR, text, err) {
 				//TODO Handle error if occured
 			}
+		});
+	}
 
+	if (id === "" && range !== "") {
+		var array = range.split("-");
+		$.ajax({
+			type: "GET",
+			url: "http://localhost:8000/items/" + array[0] + "/" + array[1],
+			async: true,
+			success: function(data) {
+				// delete tbody
+				var new_tb = document.createElement('tbody');
+				var old_tb = document.getElementById("table_body");
+				new_tb.setAttribute("id", "table_body");
+				old_tb.parentNode.replaceChild(new_tb, old_tb)
+
+				// acces row
+				$.each(data, function(i, item) {
+					var td;
+					var row = document.createElement('tr');
+					for (key in item) {
+						td = document.createElement('td');
+						$(td).html(item[key]);
+						row.appendChild(td);
+					}
+					$('#table_body').append(row);
+				});
+			},
+			error: function(jqXHR, text, err) {
+				//TODO Handle error if occured
+			}
 		});
 
+
 	}
+
+
 }
 
 
@@ -63,18 +93,14 @@ $.ajax({
 	url: "http://localhost:8000/items/",
 	async: true,
 	success: function(data) {
-
-
 		$.each(data, function(i, item) {
 			var td;
 			var row = document.createElement('tr');
-
 			for (key in item) {
 				td = document.createElement('td');
 				$(td).html(item[key]);
 				row.appendChild(td);
 			}
-
 			$('#table_body').append(row);
 		});
 	},
