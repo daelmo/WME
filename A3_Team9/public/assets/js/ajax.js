@@ -1,16 +1,26 @@
-function delete_country(){
-	// start on_submit() of form in html
+function delete_country() {
 	// get value of input field
-	// check if empty
-	// call delete method via ajax	
+	var el = document.getElementById("country_delete_id").value;
+	// call delete method via ajax
+		$.ajax({
+			type: "DELETE",
+			url: "http://localhost:8000/items/" + el,
+			async: true,
+			success: function(data) {
+				alert("tada");
+			},
+			error: function(jqXHR, text, err) {
+				//TODO Handle error if occured
+			}
+		});
 }
 
-function add_country(){
+function add_country() {
 	// start on_submit() of form in html
 	//get values of field
 	// send POST request via ajax
 	// errormessage or success
-	
+
 }
 
 //GET TABLECONTENT by loading of website (json or array)
@@ -18,19 +28,19 @@ $.ajax({
 	type: "GET",
 	url: "http://localhost:8000/items/",
 	async: true,
-	success: function(data){
-	
-	
-		$.each(data, function(i, item) {  
+	success: function(data) {
+
+
+		$.each(data, function(i, item) {
 			var td;
 			var row = document.createElement('tr');
-			
-			for(key in item){
+
+			for (key in item) {
 				td = document.createElement('td');
 				$(td).html(item[key]);
 				row.appendChild(td);
 			}
-			
+
 			$('#table_body').append(row);
 		});
 	},
@@ -47,15 +57,15 @@ $.ajax({
 	url: "http://localhost:8000/properties/",
 	async: true,
 	success: function(data) {
-		var i=0;
-		for(var value in data){
+		var i = 0;
+		for (var value in data) {
 			$('#prop_selection')
 					.append($("<option></option>")
 							.attr("value", i)
 							.text(data[value]));
-				i++;
-				}
-		},
+			i++;
+		}
+	},
 	error: function(jqXHR, text, err) {
 		//TODO Handle error if occured
 	}

@@ -107,7 +107,7 @@ app.post('/items', function(req, res){
 // DELETE COUNTRY
 app.delete('/items', function (req, res) { //deletes last
 	var length = Object.keys(jsonObject).length;
-	delete jsonObject[length-1];
+	delete jsonObject[length];
 });
 
 app.delete('/items/:num', function (req, res) { //deletes number
