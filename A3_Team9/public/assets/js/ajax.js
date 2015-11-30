@@ -2,18 +2,52 @@ function delete_country() {
 	// get value of input field
 	var el = document.getElementById("country_delete_id").value;
 	// call delete method via ajax
+	$.ajax({
+		type: "DELETE",
+		url: "http://localhost:8000/items/" + el,
+		async: true,
+	});
+}
+
+function filter_countries() {
+	var id = document.getElementById("country_filter_id").value;
+	var range = document.getElementById("country_filter_range").value;
+
+	if (id !== "") {
 		$.ajax({
-			type: "DELETE",
-			url: "http://localhost:8000/items/" + el,
+			type: "GET",
+			url: "http://localhost:8000/items/" + id,
 			async: true,
 			success: function(data) {
-				alert("tada");
+				// delete tbody
+				var tbody = document.createElement('tbody');
+				var old_tbody = document.getElementById("table_body");
+				
+				tbody.setAttribute("id", "table_body");
+				old_tbody.parentNode.replaceChild(tbody, old_tbody)
+
+				// acces row
+				var row = document.createElement('tr');
+				var td;
+				for (var value in data) {
+
+					td = document.createElement('td');
+					$(td).html(data[value]);
+					row.appendChild(td);
+				}
+				$('#table_body').append(row);
+
 			},
 			error: function(jqXHR, text, err) {
 				//TODO Handle error if occured
 			}
+
 		});
+
+	}
 }
+
+
 
 function add_country() {
 	// start on_submit() of form in html

@@ -44,7 +44,7 @@ app.get('/items', function (req, res) { //get all
 
 app.get('/items/:num', function (req, res) { //get single element
 	if (req.params.num >= jsonObject.length || req.params.num < 0){
-		res.send("No such id {" + req.params.num + "} in database.");
+		res.status(500).send("No such id {" + req.params.num + "} in database.");
 	}
 	res.send(jsonObject[req.params.num]);
 	
@@ -55,7 +55,7 @@ app.get('/items/:beg/:end', function (req, res) { //get range
 	var end = req.params.end;
 	
 	if(beg >= jsonObject.length || end >= jsonObject.length || beg < 0 || end < 0 || end < beg){
-		res.send("Range not possible.");
+		res.status(500).send("Range not possible.");
 	}
 	
 	var objects = [];
@@ -80,7 +80,7 @@ app.get('/properties', function (req, res) {
 
 app.get('/properties/:num', function (req, res) {
 	if(req.params.num >= Object.keys(jsonObject[0]).length|| req.params.num < 0){
-		res.send("Error: No such property available.");
+		res.status(500).send("Error: No such property available.");
 	}else{
 		for(var i = 0; i<jsonObject.length; i++){
 			if(typeof(jsonObject[i]) !== "undefined"){
