@@ -77,39 +77,32 @@ function filter_countries() {
 
 }
 
+function print_table(){
+	$.ajax({
+		type: "GET",
+		url: "http://localhost:8000/items/",
+		async: true,
+		success: function(data) {
+			$.each(data, function(i, item) {
+				var td;
+				var row = document.createElement('tr');
+				for (key in item) {
+					td = document.createElement('td');
+					$(td).html(item[key]);
+					row.appendChild(td);
+				}
+				$('#table_body').append(row);
+			});
+		},
+		error: function(jqXHR, text, err) {
+			//TODO Handle error if occured
+		}
 
-
-function add_country() {
-	// start on_submit() of form in html
-	//get values of field
-	// send POST request via ajax
-	// errormessage or success
-
+	});
 }
 
 //GET TABLECONTENT by loading of website (json or array)
-$.ajax({
-	type: "GET",
-	url: "http://localhost:8000/items/",
-	async: true,
-	success: function(data) {
-		$.each(data, function(i, item) {
-			var td;
-			var row = document.createElement('tr');
-			for (key in item) {
-				td = document.createElement('td');
-				$(td).html(item[key]);
-				row.appendChild(td);
-			}
-			$('#table_body').append(row);
-		});
-	},
-	error: function(jqXHR, text, err) {
-		//TODO Handle error if occured
-	}
-
-});
-
+print_table();
 
 //GET PROPERTIES by loading of website
 $.ajax({
@@ -130,3 +123,31 @@ $.ajax({
 		//TODO Handle error if occured
 	}
 });
+
+function add_country() {
+
+	// start on_submit() of form in html
+	//get values of field
+	var name = document.getElementById("country_name").value;
+	var prop1 =  document.getElementById("country_birth").value;
+	var prop2 =  document.getElementById("country_cellphone").value;
+	
+	var obj = {};
+	obj['name'] = name;
+	obj['birth rate per 1000'] = parseFloat(prop1);
+	obj['cell phones per 100'] = parseFloat(prop2);
+	
+	// send POST request via ajax
+	$.ajax({
+        type: "POST",
+        url: "http://localhost:8000/items",
+        data: obj,
+        dataType: "json", 
+		dataType: 'application/json; charset=utf-8',
+		async: true, 
+        success: function(data, textStatus, jqXHR){},
+        failure: function(jqXHR, textStatus, errorThrown){}
+        });
+	
+	print_table();
+}

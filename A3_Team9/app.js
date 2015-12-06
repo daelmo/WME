@@ -10,6 +10,9 @@ var fs = require("fs");
 var util = require("util");
 //register body-parser to handle json from res / req
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ 
+   extended: true 
+}));
 
 //register public dir to serve static files (html, css, js)
 app.use(express.static(path.join(__dirname, "public")));
@@ -95,12 +98,11 @@ app.get('/properties/:num', function(req, res) {
 
 //POST ITEM
 app.post('/items', function(req, res) {
-
 	var item = req.body;
 	jsonObject.push(item);
 
-	res.send("Added country {" + item.name + "} to list!)");
-
+	res.send("Added country {" + item.country_name + "} to list!");
+	
 });
 
 
