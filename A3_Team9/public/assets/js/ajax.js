@@ -16,7 +16,7 @@ function filter_countries() {
 	if (id !== "") {
 		$.ajax({
 			type: "GET",
-			url: "http://localhost:8000/items/" + id,
+			url: "http://localhost:8000/items/" + (id-1),
 			async: true,
 			success: function(data) {
 				// delete tbody
@@ -45,7 +45,7 @@ function filter_countries() {
 		var array = range.split("-");
 		$.ajax({
 			type: "GET",
-			url: "http://localhost:8000/items/" + array[0] + "/" + array[1],
+			url: "http://localhost:8000/items/" + (array[0]-1) + "/" + (array[1]-1),
 			async: true,
 			success: function(data) {
 				// delete tbody
