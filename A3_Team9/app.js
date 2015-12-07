@@ -59,13 +59,14 @@ app.get('/items/:beg/:end', function(req, res) { //get range
 
 	if (beg >= jsonObject.length || end >= jsonObject.length || beg < 0 || end < 0 || end < beg) {
 		res.status(500).send("Range not possible.");
-	}
+	}else{
 
 	var objects = [];
 	for (var i = beg; i <= end; i++) {
 		objects.push(jsonObject[i]);
 	}
 	res.send(objects);
+	}
 });
 
 
