@@ -133,9 +133,18 @@ function add_country() {
 	var prop2 =  document.getElementById("country_cellphone").value;
 	
 	var obj = {};
+	obj['id'] = '000';
 	obj['name'] = name;
 	obj['birth rate per 1000'] = parseFloat(prop1);
 	obj['cell phones per 100'] = parseFloat(prop2);
+	
+	var props = ['children per woman', 'electricity consumption per capita', 'gdp_per_capita', 'gdp_per_capita_growth', 
+				'inflation annual', 'internet user per 100', 'life expectancy', 'military expenditure percent of gdp',
+				'gps_lat', 'gps_long'];
+	
+	for (var i = 0; i < props.length; i++) {
+		obj[props[i]] = '-';
+	}
 	
 	// send POST request via ajax
 	$.ajax({
