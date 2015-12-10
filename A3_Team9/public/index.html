@@ -100,7 +100,7 @@
 					<div class="rest-delete">
 						<div class="rest-api-block">
 							<h2>Delete Country</h2>
-							<form name="country_delete" id="country_delete" method="DELETE" onsubmit="delete_country();">
+							<form name="country_delete" id="country_delete" method="POST" onsubmit="delete_country(); location.reload(); return false;">
 								<p>
 									<label for="country_delete_id">Country ID to delete</label>
 									<input type="text" name="country_delete_id" id="country_delete_id">

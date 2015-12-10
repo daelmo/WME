@@ -4,8 +4,7 @@ function delete_country() {
 	// call delete method via ajax
 	$.ajax({
 		type: "DELETE",
-		url: "http://localhost:8000/items/" + el,
-		async: true,
+		url: "http://localhost:8000/items/" +el ,
 	});
 }
 

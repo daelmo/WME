@@ -108,13 +108,13 @@ app.post('/items', function(req, res) {
 
 
 // DELETE COUNTRY
-app.delete('/items', function(req, res) { //deletes last
-	var length = Object.keys(jsonObject).length;
+app.delete('/items/', function(req, res) { 
+	var length =  Object.keys(jsonObject).reverse()[0];
 	delete jsonObject[length];
 });
 
-app.delete('/items/:num', function(req, res) { //deletes number
-	delete jsonObject[req.params.num];
+app.delete('/items/:num', function(req, res) {
+	delete jsonObject[req.params.num-1];
 });
 
 
