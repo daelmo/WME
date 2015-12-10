@@ -100,6 +100,14 @@ app.get('/properties/:num', function(req, res) {
 //POST ITEM
 app.post('/items', function(req, res) {
 	var item = req.body;
+	
+	//get ID and add leading zeros
+	var id = parseInt(jsonObject[jsonObject.length-1].id) + 1;
+	var id_string = id+"";
+    while (id_string.length < 3) {
+		id_string = "0" + id_string;
+	}
+	item['id'] = id_string;
 	jsonObject.push(item);
 
 	res.send("Added country {" + item.country_name + "} to list!");
